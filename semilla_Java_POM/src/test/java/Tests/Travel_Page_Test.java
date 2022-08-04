@@ -44,5 +44,6 @@ public class Travel_Page_Test {
     	travel.confirmPass("pas123");
     	travel.sendBotton();
     	travel.asserSucessLogin();
+    	driver.quit();
     }
 }
