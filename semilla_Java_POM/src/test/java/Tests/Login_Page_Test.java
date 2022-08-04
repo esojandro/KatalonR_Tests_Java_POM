@@ -1,6 +1,5 @@
 package Tests;
 import java.io.IOException;
-
 import org.junit.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import Pages.Login_Page;
@@ -31,32 +30,32 @@ public class Login_Page_Test {
     }
 
     @Test
-    public void passWrongToLogin(){
+    public void passWrongToLogin() throws IOException{
         login.ingresaEmail("mail@email.com");
         login.ingresaPass("pas123556+");
         login.clickBoton();
-        //login.confirmTextWrongLogin();
-        //login.takeScreenshotSucessLogin();
+        login.confirmTextWrongLogin();
+        login.takeScreenshotSucessLogin();
         driver.quit();
     }
 
     @Test
-    public void mailWrongToLogin(){
+    public void mailWrongToLogin() throws IOException{
         login.ingresaEmail("mailmaikl");
         login.ingresaPass("pas123");
         login.clickBoton();
-        //login.confirmTextWrongLogin();
-        //login.takeScreenshotSucessLogin();
+        login.confirmTextWrongLogin();
+        login.takeScreenshotSucessLogin();
         driver.quit();
     }
 
     @Test
-    public void passInMailBox(){
+    public void passInMailBox() throws IOException{
         login.ingresaEmail("pas123");
         login.ingresaPass("pas123");
         login.clickBoton();
-        //login.confirmTextWrongLogin();
-        //login.takeScreenshotSucessLogin();
+        login.confirmTextWrongLogin();
+        login.takeScreenshotSucessLogin();
         driver.quit();
     }
 }
