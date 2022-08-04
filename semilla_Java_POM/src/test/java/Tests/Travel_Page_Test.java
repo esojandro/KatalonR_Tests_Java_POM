@@ -21,9 +21,28 @@ public class Travel_Page_Test {
     @Test
     public void TryLogin() {
     	travel.ingresaMail("noemailcaracter");
-    	travel.ingresaPass(" "); //space i blank
+    	travel.ingresaPass(" "); //space in blank
     	travel.submitBotton();
     	travel.assertTextWorgLogin();
     	driver.quit();
+    }
+    
+    @Test
+    public void ResgisterTest() {
+    	travel.registerBotton();
+    	travel.writeFisrtName("Jonh");
+    	travel.writeLastName("Doe");
+    	travel.writePhone("89786541");
+    	travel.writeEmail("mail@mail");
+    	travel.writeAddress("address");
+    	travel.writeCity("Sao Pablo");
+    	travel.writeState("JL");
+    	travel.writeZip("11901");
+    	travel.writeCountry("Costa Rica");
+    	travel.writeUsername("jodo");
+    	travel.writePass("pas123");
+    	travel.confirmPass("pas123");
+    	travel.sendBotton();
+    	travel.asserSucessLogin();
     }
 }
