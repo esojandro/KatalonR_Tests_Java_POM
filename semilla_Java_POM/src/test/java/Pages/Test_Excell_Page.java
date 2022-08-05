@@ -1,4 +1,5 @@
 package Pages;
+import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import File.*;
@@ -18,7 +19,7 @@ public class Test_Excell_Page {
 		this.driver = driver;
 	}	
 
-	public void searchFristElement() {
+	public void searchFristElement() throws IOException {
 		String filepath = "./src/test/resources/writefiles/test.xlsx";
 		String searchText = readFile.readCell(filepath, "Hoja1", 0, 0);		
 		driver.findElement(search_box).sendKeys(searchText);
@@ -30,7 +31,7 @@ public class Test_Excell_Page {
 		readFile.readPage(filepath, "Hoja1");
 	}
 	
-	public void searchSecondElement() {
+	public void searchSecondElement() throws IOException {
 		String filepath = "./src/test/resources/writefiles/test.xlsx";
 		String searchText = readFile.readCell(filepath, "Hoja1", 1, 0);		
 		driver.findElement(search_box).sendKeys(searchText);
