@@ -25,7 +25,6 @@ public class Exell_Read_File {
 	}
 
 	// Permite leer el excell una celda
-
 	public String readCell(String filepath, String sheetName, int rowNumber, int cellNumber) throws IOException {
 
 		File file = new File(filepath);
@@ -34,7 +33,6 @@ public class Exell_Read_File {
 		XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
 		XSSFRow row = newSheet.getRow(rowNumber);
 		XSSFCell cell = row.getCell(cellNumber);
-
 		return cell.getStringCellValue();
 	}
 }
