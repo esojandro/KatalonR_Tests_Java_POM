@@ -25,7 +25,8 @@ public class Travel_Page {
 	By write_pass = By.xpath("//input[contains(@name,'password')]");
 	By confrim_pass = By.xpath("//input[contains(@name,'confirmPassword')]");
 	By send_botton = By.xpath("//input[@src='images/submit.gif']");
-	By sucess_login = By.xpath("(//font[contains(@face,'Arial, Helvetica, sans-serif')])[3]");
+	By sucess_register = By.xpath("(//font[contains(@face,'Arial, Helvetica, sans-serif')])[3]");
+	By sucess_login = By.xpath("//h3[contains(.,'Login Successfully')]");
 	
 	public Travel_Page(WebDriver driver)
     {
@@ -106,7 +107,11 @@ public class Travel_Page {
 		driver.findElement(send_botton).click();
 	}
 	
-	public void asserSucessLogin() {
+	public void asserSucessRegister() {
+		assert(driver.findElement(sucess_register).isDisplayed());
+	}
+	
+	public void assertTextSuccessLogin() {
 		assert(driver.findElement(sucess_login).isDisplayed());
 	}
 }

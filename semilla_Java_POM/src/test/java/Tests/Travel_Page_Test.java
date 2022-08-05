@@ -43,7 +43,24 @@ public class Travel_Page_Test {
     	travel.writePass("pas123");
     	travel.confirmPass("pas123");
     	travel.sendBotton();
-    	travel.asserSucessLogin();
+    	travel.asserSucessRegister();
+    	driver.quit();
+    }
+    
+    @Test
+    public void SuccessLogin() {
+    	travel.ingresaMail("jodo");
+    	travel.ingresaPass("pas123"); //space in blank
+    	travel.submitBotton();
+    	travel.assertTextSuccessLogin();
+    	driver.quit();
+    }
+    
+    public void LoginWrongPass() {
+    	travel.ingresaMail("jodo");
+    	travel.ingresaPass("pass123"); //space in blank
+    	travel.submitBotton();
+    	travel.assertTextWorgLogin();
     	driver.quit();
     }
 }
