@@ -50,17 +50,25 @@ public class Travel_Page_Test {
     @Test
     public void SuccessLogin() {
     	travel.ingresaMail("jodo");
-    	travel.ingresaPass("pas123"); //space in blank
+    	travel.ingresaPass("pas123");
     	travel.submitBotton();
     	travel.assertTextSuccessLogin();
     	driver.quit();
     }
     
+    @Test
     public void LoginWrongPass() {
     	travel.ingresaMail("jodo");
-    	travel.ingresaPass("pass123"); //space in blank
+    	travel.ingresaPass("pass123");
     	travel.submitBotton();
     	travel.assertTextWorgLogin();
     	driver.quit();
+    }
+    
+    @Test
+    public void FlightFinder() {    	
+    	travel.bottonFlights();
+    	travel.DDLPassenger("4");
+    	travel.DDLDeparting("London");
     }
 }
