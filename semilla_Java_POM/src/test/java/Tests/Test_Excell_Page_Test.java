@@ -22,12 +22,13 @@ public class Test_Excell_Page_Test {
 	public void testReadSearchWriteFristElement() throws IOException {
 
 		tep.searchFristElement();
+		driver.close();
 	}
-	
+
 	@Test
 	public void testReadSearchWriteSecondElement() throws IOException {
 
 		tep.searchSecondElement();
+		driver.close();
 	}
-
 }
