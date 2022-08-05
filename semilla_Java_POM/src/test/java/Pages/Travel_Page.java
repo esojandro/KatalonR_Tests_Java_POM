@@ -1,9 +1,9 @@
 package Pages;
-import java.util.Iterator;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Travel_Page {
 
@@ -35,7 +35,15 @@ public class Travel_Page {
 	By drop_down_list_passenger = By.xpath("//select[contains(@name,'passCount')]");
 		By ddl_passenger_options = By.tagName("option"); // Depende del selector anterior
 	By drop_down_list_departing = By.xpath("//select[contains(@name,'fromPort')]");
-		By ddl_departing_options = By.tagName("option");
+		By ddl_departing_options = By.tagName("option"); // Depende del selector anterior
+	By drop_down_list_month_departing = By.xpath("//select[@name='fromMonth']");
+	By drop_down_list_day_departing = By.xpath("//select[contains(@name,'fromDay')]");
+	By drop_down_list_arriving = By.xpath("//select[@name='toPort']");
+	By drop_down_list_month_arriving = By.xpath("//select[@name='toMonth']");
+	By drop_down_list_day_arriving = By.xpath("//select[@name='toDay']");
+	// Hay otras opciones, pero lo que se necesita es el ejemplo par DDL
+	By botton_continue = By.xpath("//input[@src='images/continue.gif']");
+	By assert_flights = By.xpath("//font[@size='4'][contains(.,'After flight finder - No Seats Avaialble')]");
 
 	public Travel_Page(WebDriver driver)
 	{
@@ -124,11 +132,11 @@ public class Travel_Page {
 		assert(driver.findElement(sucess_login).isDisplayed());
 	}
 
+	// Drop Down List Test Methods
+
 	public void bottonFlights() {
 		driver.findElement(flights_botton).click();
 	}
-
-	// Drop Down List Test Methods
 	
 	// Si hubiese una Clase base los siguientes dos metodos serian parte de en esta
 	// en este caso no se utilizan
@@ -178,5 +186,43 @@ public class Travel_Page {
 			}
 		}
 		return selectedOption;
+	}
+	
+	public String DDLDepartingMonth(String month) {
+		Select selectListMonth = new Select(driver.findElement(drop_down_list_month_departing));
+		selectListMonth.selectByVisibleText(month);				
+		return selectListMonth.getFirstSelectedOption().getText();
+	}
+	
+	public String DDLDepartingDay(String day) {
+		Select selectListDay = new Select(driver.findElement(drop_down_list_day_departing));
+		selectListDay.selectByVisibleText(day);
+		return selectListDay.getFirstSelectedOption().getText();
+	}
+	
+	public String DDLArriving(String arriving) {
+		Select selectListArriving = new Select(driver.findElement(drop_down_list_arriving));
+		selectListArriving.selectByVisibleText(arriving);
+		return selectListArriving.getFirstSelectedOption().getText();
+	}
+	
+	public String DDLArrivingMonth(String arrivingMonth) {
+		Select selectListArriving = new Select(driver.findElement(drop_down_list_month_arriving));
+		selectListArriving.selectByVisibleText(arrivingMonth);
+		return selectListArriving.getFirstSelectedOption().getText();
+	}
+	
+	public String DDLArrivingDay(String arrivingDay) {
+		Select selectListArriving = new Select(driver.findElement(drop_down_list_day_arriving));
+		selectListArriving.selectByVisibleText(arrivingDay);
+		return selectListArriving.getFirstSelectedOption().getText();
+	}
+	
+	public void bottonContinue() {
+		driver.findElement(botton_continue).click();
+	}
+	
+	public void assertTextFlight() {
+		assert(driver.findElement(assert_flights).isDisplayed());
 	}
 }

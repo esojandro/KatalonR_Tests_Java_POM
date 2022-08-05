@@ -66,9 +66,17 @@ public class Travel_Page_Test {
     }
     
     @Test
-    public void FlightFinder() {    	
+    public void FlightFinder() { // Presenta problemas porque hay anuncios en la test page	
     	travel.bottonFlights();
     	travel.DDLPassenger("4");
     	travel.DDLDeparting("London");
+    	travel.DDLDepartingMonth("July");
+    	travel.DDLDepartingDay("14");
+    	travel.DDLArriving("Paris");
+    	travel.DDLDepartingMonth("October");
+    	travel.DDLDepartingDay("22");
+    	travel.bottonContinue();
+    	travel.assertTextFlight();
+    	driver.close();
     }
 }
