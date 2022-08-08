@@ -20,19 +20,31 @@ public class Test_Excell_Page_Test {
 
 	@Test
 	public void testProcessFristElement() throws IOException{
-		tep.searchAnyElement(0, 0, 0, 1);
+		tep.searchAnyElement(0, 0, 0, 1); // readcell, readRow, writeCell, writeRow
 		driver.close();
 	}
 	
 	@Test
 	public void testProcessSecodElement() throws IOException{
-		tep.searchAnyElement( 1, 0, 1, 1); // readRow, readcell, writeRow, writeCell
+		tep.searchAnyElement( 1, 0, 1, 1); // readcell, readRow, writeCell, writeRow
 		driver.close();
 	}
 	
 	@Test
 	public void testProcessTreeElement() throws IOException{
-		tep.searchAnyElement( 2, 0, 2, 1); // readRow, readcell, writeRow, writeCell
+		tep.searchAnyElement( 2, 0, 2, 1); // readcell, readRow, writeCell, writeRow
+		driver.close();
+	}
+	
+	@Test
+	public void testProcessFourElement() throws IOException{
+		tep.searchAnyElement( 3, 0, 3, 1); // readcell, readRow, writeCell, writeRow
+		driver.close();
+	}
+	
+	@Test
+	public void testProcessFiveElement() throws IOException{
+		tep.searchAnyElement( 4, 0, 4, 1); // readcell, readRow, writeCell, writeRow
 		driver.close();
 	}
 }
