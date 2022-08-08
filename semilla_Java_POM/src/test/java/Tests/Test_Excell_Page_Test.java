@@ -35,16 +35,4 @@ public class Test_Excell_Page_Test {
 		tep.searchAnyElement( 2, 0, 2, 1); // readcell, readRow, writeCell, writeRow
 		driver.close();
 	}
-	
-	@Test
-	public void testProcessFourElement() throws IOException{
-		tep.searchAnyElement( 3, 0, 3, 1); // readcell, readRow, writeCell, writeRow
-		driver.close();
-	}
-	
-	@Test
-	public void testProcessFiveElement() throws IOException{
-		tep.searchAnyElement( 4, 0, 4, 1); // readcell, readRow, writeCell, writeRow
-		driver.close();
-	}
 }
